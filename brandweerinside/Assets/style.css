@@ -1,0 +1,169 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5-dec-2019, 15:32:44
+    Author     : visse
+*/
+
+/* 
+ * Styling voor de algemene applicatie 
+ */
+.root{
+    -fx-font-size: 13pt;
+    -fx-font-family: "Verdana";
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-background-color: rgb(238, 238, 238);
+}
+
+/* Styling voor bovenkant van het menu */
+.menu__top{
+    -fx-background-color: rgb(0, 0, 0);
+}
+
+/* Styling voor onderkant van het menu */
+.menu__bottom{
+    -fx-background-color: rgb(69, 69, 69);
+}
+
+/* Styling voor de knopppen in het menu */
+.menu--button{
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: rgb(255, 255, 255);
+    -fx-font-size: 14pt;
+    -fx-font-weight: 500;
+}
+
+/* Styling voor als je met je muis over de knop gaat en de actieve knop */
+.menu--button:hover, .menu--active{
+    -fx-border-color: rgb(200 ,2 ,27);
+    -fx-border-width: 0 0 6 0;
+}
+
+/* Styling voor de titel van de pagina */
+.page--title{
+    -fx-font-size: 22pt;
+    -fx-font-weight: 700;
+    -fx-text-alignment: center;
+}
+
+/* Styling voor de tussenkoppen van de pagina */
+.page--section{
+    -fx-font-size: 14pt;
+    -fx-font-weight: 700;
+}
+
+/* Styling voor de labels */
+.page--label{
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-font-size: 13pt;
+    -fx-font-weight: 600;
+}
+
+/* Styling voor comboboxes */
+.combo-box-base{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-border-color: rgb(197, 197, 197);
+    -fx-border-width: 1 1 1 1;
+}
+
+/* Styling voor de standaard knoppen */
+.btn--default{
+    -fx-text-fill: rgb(255, 255, 255);
+    -fx-font-size: 13pt;
+    -fx-background-color: rgb(200, 2, 27);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: rgb(200 , 2, 27);
+    -fx-border-width: 2 2 2 2;
+}
+
+/* styling voor de secundaire knoppen */
+.btn--secondary{
+    -fx-text-fill: rgb(255, 255, 255);
+    -fx-font-size: 13pt;
+    -fx-background-color: rgb(64, 81, 173);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: rgb(64, 81, 173);
+    -fx-border-width: 2 2 2 2;
+}
+
+/* Achtergrond wit maken en tekst zwart bij de secundaire en standaard knoppen */
+.btn--default:hover, .btn--secondary:hover{
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-background-color: rgb(255, 255, 255);
+}
+
+/* 
+ * Styling voor de tableview 
+ */
+/* Alles in de tableview */
+.table-view{
+   -fx-background-color: rgba(0, 0, 0, 0);
+   -fx-border-color: rgb(69, 69, 69);
+   -fx-border-width: 1 1 1 1;
+}
+
+/* Titel van de kolommen in de tableview */
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler{
+    -fx-font-size: 13pt;
+    -fx-font-weight: 500;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-border-color: rgb(69, 69, 69);
+    -fx-border-width: 0 0 0.5 0;
+}
+
+/* tableview rows */
+.table-row-cell{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-border-color: rgb(69, 69, 69);
+    -fx-border-width: 0 0 0.5 0;
+}
+
+.table-row-cell:selected {
+   -fx-background-color: rgb(64, 81, 173); 
+   -fx-text-background-color: rgb(255, 255, 255);
+}
+
+/* 
+ * Styling voor de feedback 
+ */
+/* Algemene styling voor de feedback labels */
+.feedback__label{
+    -fx-font-size: 11pt;
+    -fx-font-weight: 400;
+}
+
+/* Styling voor als er goede feedback is */
+.label--succes{
+    -fx-text-fill: rgb(40, 167, 69);
+}
+
+/* Styling voor als er slechte feedback is */
+.label--error{
+    -fx-text-fill: rgb(200, 2, 27);
+}
+
+/* Styling voor het invoerveld als deze goede feedback heeft */
+.invoer--succes{
+    -fx-border-color: rgb(40 , 167, 69);
+    -fx-border-width: 2 2 2 2;
+}
+
+/* Styling voor het invoerveld als deze slechte feedback heeft */
+.invoer--error{
+    -fx-border-color: rgb(200 , 2, 27);
+    -fx-border-width: 2 2 2 2;
+}
+
+/* Styling voor als de knop niet klikbaar moet zijn */
+.btn--disabeld{
+    -fx-opacity: 0.5;
+}
+
+
