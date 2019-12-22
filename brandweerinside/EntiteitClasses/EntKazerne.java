@@ -12,117 +12,123 @@ package brandweerinside.EntiteitClasses;
 public class EntKazerne {
     
     // Variabele aanmaken per kolom in de database
-    private final Integer iKazerneID;
-    private final String sRegio;
-    private final Integer iJaar;
-    private final Integer iProfessioneelMan;
-    private final Integer iProfessioneelVrouw;
-    private final Integer iProfessioneelHogeRank;
-    private final Integer iProfessioneelMiddenRank;
-    private final Integer iProfessioneelLageRank;
-    private final Integer iVrijwilligerMan;
-    private final Integer iVrijwilligerVrouw;
-    private final Integer iVrijwilligerHogeRank;
-    private final Integer iVrijwilligerMiddenRank;
-    private final Integer iVrijwilligerLageRank;
-    private final Integer iNietOperationeelHboWo;
-    private final Integer iNietOperationeelMbo;
-    private final Integer iNietOperationeelLbo;
-    private final Integer iTekort;
+    private final Integer KazerneID;
+    private final String Regio;
+    private final Integer Jaar;
+    private final Integer ProfessioneelMan;
+    private final Integer ProfessioneelVrouw;
+    private final Integer ProfessioneelHogeMiddenRank;
+    private final Integer ProfessioneelLageRank;
+    private final Integer VrijwilligerMan;
+    private final Integer VrijwilligerVrouw;
+    private final Integer VrijwilligerHogeMiddenRank;
+    private final Integer VrijwilligerLageRank;
+    private final Integer NietOperationeelHboWo;
+    private final Integer NietOperationeelMbo;
+    private final Integer NietOperationeelLbo;
+    private final String Tekort;
+    private final Integer TotaalProfessioneel;
+    private final Integer TotaalVrijwilliger;
+    private final Integer TotaalNietOperationeel;
     
-    public EntKazerne(Integer colKazerneID, String colRegio, Integer colJaar, Integer colProfessioneelMan, Integer colProfessioneelVrouw, Integer ProfessioneelHogeRank, Integer colrofessioneelMiddenRank, Integer colProfessioneelLageRank, Integer colVrijwilligerMan, Integer colVrijwilligerVrouw, Integer colVrijwilligerHogeRank, Integer colVrijwilligerMiddenRank, Integer colVrijwilligerLageRank, Integer colNietOperationeelHboWo, Integer colNietOperationeelMbo, Integer colNietOperationeelLbo, Integer colTekort){
-        this.iKazerneID = new Integer(colKazerneID);
-        this.sRegio = new String(colRegio);
-        this.iJaar = new Integer(colJaar);
-        this.iProfessioneelMan = new Integer(colProfessioneelMan);
-        this.iProfessioneelVrouw = new Integer(colProfessioneelVrouw);
-        this.iProfessioneelHogeRank = new Integer(ProfessioneelHogeRank);
-        this.iProfessioneelMiddenRank = new Integer(colrofessioneelMiddenRank);
-        this.iProfessioneelLageRank = new Integer(colProfessioneelLageRank);
-        this.iVrijwilligerMan = new Integer(colVrijwilligerMan);
-        this.iVrijwilligerVrouw = new Integer(colVrijwilligerVrouw);
-        this.iVrijwilligerHogeRank = new Integer(colVrijwilligerHogeRank);
-        this.iVrijwilligerMiddenRank = new Integer(colVrijwilligerMiddenRank);
-        this.iVrijwilligerLageRank = new Integer(colVrijwilligerLageRank);
-        this.iNietOperationeelHboWo = new Integer(colNietOperationeelHboWo);
-        this.iNietOperationeelMbo = new Integer(colNietOperationeelMbo);
-        this.iNietOperationeelLbo = new Integer(colNietOperationeelLbo);
-        this.iTekort = new Integer(colTekort);
+    public EntKazerne(Integer colKazerneID, String colRegio, Integer colJaar, Integer colProfessioneelMan, Integer colProfessioneelVrouw, Integer colProfessioneelHogeMiddenRank, Integer colProfessioneelLageRank, Integer colVrijwilligerMan, Integer colVrijwilligerVrouw, Integer colVrijwilligerHogeMiddenRank, Integer colVrijwilligerLageRank, Integer colNietOperationeelHboWo, Integer colNietOperationeelMbo, Integer colNietOperationeelLbo, String colTekort){
+        this.KazerneID = new Integer(colKazerneID);
+        this.Regio = new String(colRegio);
+        this.Jaar = new Integer(colJaar);
+        this.ProfessioneelMan = new Integer(colProfessioneelMan);
+        this.ProfessioneelVrouw = new Integer(colProfessioneelVrouw);
+        this.ProfessioneelHogeMiddenRank = new Integer(colProfessioneelHogeMiddenRank);
+        this.ProfessioneelLageRank = new Integer(colProfessioneelLageRank);
+        this.VrijwilligerMan = new Integer(colVrijwilligerMan);
+        this.VrijwilligerVrouw = new Integer(colVrijwilligerVrouw);
+        this.VrijwilligerHogeMiddenRank = new Integer(colVrijwilligerHogeMiddenRank);
+        this.VrijwilligerLageRank = new Integer(colVrijwilligerLageRank);
+        this.NietOperationeelHboWo = new Integer(colNietOperationeelHboWo);
+        this.NietOperationeelMbo = new Integer(colNietOperationeelMbo);
+        this.NietOperationeelLbo = new Integer(colNietOperationeelLbo);
+        this.Tekort = new String(colTekort);
+        this.TotaalProfessioneel = new Integer(colProfessioneelMan + colProfessioneelVrouw);
+        this.TotaalVrijwilliger = new Integer(colVrijwilligerMan + colVrijwilligerVrouw);
+        this.TotaalNietOperationeel = new Integer(colNietOperationeelHboWo + colNietOperationeelMbo + colNietOperationeelLbo);
     }
     
     // Getters
     public Integer getKazerneID() {
-        return iKazerneID;
+        return KazerneID;
     }
 
     public String getRegio() {
-        return sRegio;
+        return Regio;
     }
 
     public Integer getJaar() {
-        return iJaar;
+        return Jaar;
     }
 
     public Integer getProfessioneelMan() {
-        return iProfessioneelMan;
+        return ProfessioneelMan;
     }
 
     public Integer getProfessioneelVrouw() {
-        return iProfessioneelVrouw;
+        return ProfessioneelVrouw;
     }
 
-    public Integer getProfessioneelHogeRank() {
-        return iProfessioneelHogeRank;
-    }
-
-    public Integer getProfessioneelMiddenRank() {
-        return iProfessioneelMiddenRank;
+    public Integer getProfessioneelHogeMiddenRank() {
+        return ProfessioneelHogeMiddenRank;
     }
 
     public Integer getProfessioneelLageRank() {
-        return iProfessioneelLageRank;
+        return ProfessioneelLageRank;
     }
 
     public Integer getVrijwilligerMan() {
-        return iVrijwilligerMan;
+        return VrijwilligerMan;
     }
 
     public Integer getVrijwilligerVrouw() {
-        return iVrijwilligerVrouw;
+        return VrijwilligerVrouw;
     }
 
-    public Integer getVrijwilligerHogeRank() {
-        return iVrijwilligerHogeRank;
-    }
-
-    public Integer getVrijwilligerMiddenRank() {
-        return iVrijwilligerMiddenRank;
+    public Integer getVrijwilligerHogeMiddenRank() {
+        return VrijwilligerHogeMiddenRank;
     }
 
     public Integer getVrijwilligerLageRank() {
-        return iVrijwilligerLageRank;
+        return VrijwilligerLageRank;
     }
 
     public Integer getNietOperationeelHboWo() {
-        return iNietOperationeelHboWo;
+        return NietOperationeelHboWo;
     }
 
     public Integer getNietOperationeelMbo() {
-        return iNietOperationeelMbo;
+        return NietOperationeelMbo;
     }
 
     public Integer getNietOperationeelLbo() {
-        return iNietOperationeelLbo;
+        return NietOperationeelLbo;
     }
 
-    public Integer getTekort() {
-        return iTekort;
+    public String getTekort() {
+        return Tekort;
     }
-    
-        
-    // Waardes omzetten in string
+
+    public Integer getTotaalProfessioneel() {
+        return TotaalProfessioneel;
+    }
+
+    public Integer getTotaalVrijwilliger() {
+        return TotaalVrijwilliger;
+    }
+
+    public Integer getTotaalNietOperationeel() {
+        return TotaalNietOperationeel;
+    }
+
+    // to string functie
     @Override
     public String toString() {
-        return "EntGebruiker{" + "iKazerneID=" + iKazerneID + ", sRegio=" + sRegio + ", iJaar=" + iJaar + ", iProfessioneelMan=" + iProfessioneelMan + ", iProfessioneelVrouw=" + iProfessioneelVrouw + ", iProfessioneelHogeRank=" + iProfessioneelHogeRank + ", iProfessioneelMiddenRank=" + iProfessioneelMiddenRank + ", iProfessioneelLageRank=" + iProfessioneelLageRank + ", iVrijwilligerMan=" + iVrijwilligerMan + ", iVrijwilligerVrouw=" + iVrijwilligerVrouw + ", iVrijwilligerHogeRank=" + iVrijwilligerHogeRank + ", iVrijwilligerMiddenRank=" + iVrijwilligerMiddenRank + ", iVrijwilligerLageRank=" + iVrijwilligerLageRank + ", iNietOperationeelHboWo=" + iNietOperationeelHboWo + ", iNietOperationeelMbo=" + iNietOperationeelMbo + ", iNietOperationeelLbo=" + iNietOperationeelLbo + ", iTekort=" + iTekort + '}';
+        return "EntKazerne{" + "KazerneID=" + KazerneID + ", Regio=" + Regio + ", Jaar=" + Jaar + ", ProfessioneelMan=" + ProfessioneelMan + ", ProfessioneelVrouw=" + ProfessioneelVrouw + ", ProfessioneelHogeMiddenRank=" + ProfessioneelHogeMiddenRank + ", ProfessioneelLageRank=" + ProfessioneelLageRank + ", VrijwilligerMan=" + VrijwilligerMan + ", VrijwilligerVrouw=" + VrijwilligerVrouw + ", VrijwilligerHogeMiddenRank=" + VrijwilligerHogeMiddenRank + ", VrijwilligerLageRank=" + VrijwilligerLageRank + ", NietOperationeelHboWo=" + NietOperationeelHboWo + ", NietOperationeelMbo=" + NietOperationeelMbo + ", NietOperationeelLbo=" + NietOperationeelLbo + ", Tekort=" + Tekort + ", TotaalProfessioneel=" + TotaalProfessioneel + ", TotaalVrijwilliger=" + TotaalVrijwilliger + ", TotaalNietOperationeel=" + TotaalNietOperationeel + '}';
     }
+    
 }
