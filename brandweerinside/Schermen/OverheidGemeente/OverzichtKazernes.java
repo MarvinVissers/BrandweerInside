@@ -5,7 +5,7 @@
  */
 package brandweerinside.Schermen.OverheidGemeente;
 
-import brandweerinside.EntiteitClasses.EntKazerneTotaal;
+import brandweerinside.EntiteitClasses.EntKazerne;
 import brandweerinside.Functions;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -98,39 +98,45 @@ public class OverzichtKazernes {
         lblTitel.getStyleClass().add("page--title");
         
         // Tableview aanmaken
-        TableView<EntKazerneTotaal> tableview = new TableView();   
+        TableView<EntKazerne> tableview = new TableView();   
         tableview.setPrefSize(1000, 700);
 
+        // Kolom Regio aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colRegion = new TableColumn();
         colRegion.setText("Regio");
         colRegion.setPrefWidth(180);
         colRegion.setResizable(false);
 
+        // Kolom Totaal Professioneel aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colProfessioneel = new TableColumn();   
         colProfessioneel.setText("Professionele leden");
         colProfessioneel.setPrefWidth(200);
         colProfessioneel.setResizable(false);
 
+        // Kolom Totaal Vrijwilliger aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colVrijwilliger = new TableColumn();    
         colVrijwilliger.setText("Vrijwillige leden");
         colVrijwilliger.setPrefWidth(200);
         colVrijwilliger.setResizable(false);
 
+        // Kolom Totaal Niet Operationeel aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colNietOperationeel = new TableColumn();   
         colNietOperationeel.setText("Niet-operationele leden");
         colNietOperationeel.setPrefWidth(280);
         colNietOperationeel.setResizable(false);
 
+        // Kolom Tekort aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colTekort = new TableColumn();  
         colTekort.setText("Tekort");
         colTekort.setPrefWidth(110);
         colTekort.setResizable(false);
 
-        colRegion.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, String>("Regio"));
-        colProfessioneel.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, Integer>("TotaalProfessioneel"));
-        colVrijwilliger.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, Integer>("TotaalVrijwillig"));
-        colNietOperationeel.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, Integer>("TotaalNietOperationeel"));
-        colTekort.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, String>("Tekort"));
+        // Kolommen binden aan waardes uit Entiteit Class
+        colRegion.setCellValueFactory(new PropertyValueFactory<EntKazerne, String>("Regio"));
+        colProfessioneel.setCellValueFactory(new PropertyValueFactory<EntKazerne, Integer>("TotaalProfessioneel"));
+        colVrijwilliger.setCellValueFactory(new PropertyValueFactory<EntKazerne, Integer>("TotaalVrijwilliger"));
+        colNietOperationeel.setCellValueFactory(new PropertyValueFactory<EntKazerne, Integer>("TotaalNietOperationeel"));
+        colTekort.setCellValueFactory(new PropertyValueFactory<EntKazerne, String>("Tekort"));
         tableview.setItems(db.getOverviewKazernes());
         tableview.getColumns().addAll(colRegion, colProfessioneel, colVrijwilliger, colNietOperationeel, colTekort);
         
@@ -164,19 +170,22 @@ public class OverzichtKazernes {
         
         // Rij in tableview
         tableview.setOnMouseClicked((MouseEvent event) -> {
-            // Kijken of er 2 keer op een rij geklikt is
-            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
-                //System.out.println(tableview.getSelectionModel().getSelectedItem());
-                
-                // Kijgen van de regio
-                String sRegio = tableview.getSelectionModel().getSelectedItem().getRegio();
-                //System.out.println("Regio is " + sRegio);
-                
-                // Gebruiker naar details pagina doorsturen
-                DetailsKazerne details = new DetailsKazerne(primaryStage, scene, sEmail, sRegio);
+            try{
+                // Kijken of er 2 keer op een rij geklikt is
+                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2){
+                    //System.out.println(tableview.getSelectionModel().getSelectedItem());
+
+                    // Krijgen van de regio
+                    String sRegio = tableview.getSelectionModel().getSelectedItem().getRegio();
+                    //System.out.println("Regio is " + sRegio);
+
+                    // Gebruiker naar details pagina doorsturen
+                    DetailsKazerne details = new DetailsKazerne(primaryStage, scene, sEmail, sRegio);
+                }
+            }catch(Exception e){
+                System.out.println(e);
             }
         });
-        //}
         
         /*
          * Stage aanmaken

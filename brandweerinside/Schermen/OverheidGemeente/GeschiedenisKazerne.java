@@ -5,7 +5,7 @@
  */
 package brandweerinside.Schermen.OverheidGemeente;
 
-import brandweerinside.EntiteitClasses.EntKazerneTotaal;
+import brandweerinside.EntiteitClasses.EntKazerne;
 import brandweerinside.Functions;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -110,45 +110,52 @@ public class GeschiedenisKazerne {
         lblTitel.getStyleClass().add("page--title");
         
         // Tableview aanmaken
-        TableView<EntKazerneTotaal> tableview = new TableView();   
+        TableView<EntKazerne> tableview = new TableView();   
         tableview.setPrefSize(1000, 700);
 
+        // Kolom Regio aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colRegion = new TableColumn();
         colRegion.setText("Regio");
         colRegion.setPrefWidth(100);
         colRegion.setResizable(false);
 
+        // Kolom Totaal Professioneel aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colProfessioneel = new TableColumn();   
         colProfessioneel.setText("Professionele leden");
         colProfessioneel.setPrefWidth(200);
         colProfessioneel.setResizable(false);
 
+        // Kolom Totaal Vrijwilliger aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colVrijwilliger = new TableColumn();    
         colVrijwilliger.setText("Vrijwillige leden");
         colVrijwilliger.setPrefWidth(200);
         colVrijwilliger.setResizable(false);
 
+        // Kolom Totaal niet operationeel aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colNietOperationeel = new TableColumn();   
         colNietOperationeel.setText("Niet-operationele leden");
         colNietOperationeel.setPrefWidth(275);
         colNietOperationeel.setResizable(false);
 
+        // Kolom Tekort aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colTekort = new TableColumn();  
         colTekort.setText("Tekort");
         colTekort.setPrefWidth(95);
         colTekort.setResizable(false);
         
+        // Kolom Jaar aanmaken, goede breedte maken en niet breedte niet aapasbaar maken
         TableColumn colJaar = new TableColumn();  
         colJaar.setText("Jaar");
         colJaar.setPrefWidth(95);
         colTekort.setResizable(false);
 
-        colRegion.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, String>("Regio"));
-        colProfessioneel.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, Integer>("TotaalProfessioneel"));
-        colVrijwilliger.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, Integer>("TotaalVrijwillig"));
-        colNietOperationeel.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, Integer>("TotaalNietOperationeel"));
-        colTekort.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, String>("Tekort"));
-        colJaar.setCellValueFactory(new PropertyValueFactory<EntKazerneTotaal, Integer>("Jaar"));
+        // Kolommen binden aan waardes uit Entiteit Class
+        colRegion.setCellValueFactory(new PropertyValueFactory<EntKazerne, String>("Regio"));
+        colProfessioneel.setCellValueFactory(new PropertyValueFactory<EntKazerne, Integer>("TotaalProfessioneel"));
+        colVrijwilliger.setCellValueFactory(new PropertyValueFactory<EntKazerne, Integer>("TotaalVrijwilliger"));
+        colNietOperationeel.setCellValueFactory(new PropertyValueFactory<EntKazerne, Integer>("TotaalNietOperationeel"));
+        colTekort.setCellValueFactory(new PropertyValueFactory<EntKazerne, String>("Tekort"));
+        colJaar.setCellValueFactory(new PropertyValueFactory<EntKazerne, Integer>("Jaar"));
         tableview.setItems(db.getGeschiedenisKazerne(sRegio));
         tableview.getColumns().addAll(colRegion, colProfessioneel, colVrijwilliger, colNietOperationeel, colTekort, colJaar);
         
@@ -184,6 +191,7 @@ public class GeschiedenisKazerne {
         btnOverzicht.setOnAction(event -> {
             OverzichtKazernes ovKazernes = new OverzichtKazernes(primaryStage, scene, sEmail);
         });
+        
         // Details knop
         btnDetails.setOnAction(event -> {
             DetailsKazerne dtlsKazerne = new DetailsKazerne(primaryStage, scene, sEmail, sRegio);

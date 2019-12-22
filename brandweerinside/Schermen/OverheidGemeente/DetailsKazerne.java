@@ -7,7 +7,6 @@ package brandweerinside.Schermen.OverheidGemeente;
 
 import brandweerinside.EntiteitClasses.EntKazerne;
 import brandweerinside.Functions;
-import brandweerinside.Schermen.Registreren;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -98,8 +97,8 @@ public class DetailsKazerne {
             bottomMenu.getChildren().addAll(btnUitloggen, btnOverzicht);
 
             /*
-            * alles van de root AnchorPane
-            */
+             * alles van de details AnchorPane
+             */
             AnchorPane root = new AnchorPane();
 
             // Labels aanmaken
@@ -109,13 +108,11 @@ public class DetailsKazerne {
             Label lblTitelNietOperationeel = new Label("Niet operationele werknemers");
             Label lblProfessioneelMan = new Label("Professionele mannen");
             Label lblProfessioneelVrouw = new Label("Professionele vrouwen");
-            Label lblProfessioneelHogeRank = new Label("Hoge rank");
-            Label lblProfessioneelMiddenRank = new Label("Midden rank");
+            Label lblProfessioneelHogeMiddenRank = new Label("Hoge en midden rank");
             Label lblProfessioneelLageRank = new Label("Lage rank");
             Label lblVrijwilligMan = new Label("Mannen");
             Label lblVrijwilligVrouw = new Label("Vrouwen");
-            Label lblVrijwilligHogeRank = new Label("Hoge rank");
-            Label lblVrijwilligMiddenRank = new Label("Midden rank");
+            Label lblVrijwilligHogeMiddenRank = new Label("Hoge en midden rank");
             Label lblVrijwilligLageRank = new Label("Lage rank");
             Label lblOpleidingHboWo = new Label("HBO of Wo Opleidingsniveau");
             Label lblOpleidingMbo = new Label("MBO opleidingsniveau");
@@ -123,13 +120,11 @@ public class DetailsKazerne {
             Label lblTekort = new Label("Tekort");
             Label lblFeedbackProfessioneelMan = new Label("");
             Label lblFeedbackProfessioneelVrouw = new Label("");
-            Label lblFeedbackProfessioneelHogeRank = new Label("");
-            Label lblFeedbackProfessioneelMiddenRank = new Label("");
+            Label lblFeedbackProfessioneelHogeMiddenRank = new Label("");
             Label lblFeedbackProfessioneelLageRank = new Label("");
             Label lblFeedbackVrijwilligMan = new Label("");
             Label lblFeedbackVrijwilligVrouw = new Label("");
-            Label lblFeedbackVrijwilligHogeRank = new Label("");
-            Label lblFeedbackVrijwilligMiddenRank = new Label("");
+            Label lblFeedbackVrijwilligHogeMiddenRank = new Label("");
             Label lblFeedbackVrijwilligLageRank = new Label("");
             Label lblFeedbackOpleidingHboWo = new Label("");
             Label lblFeedbackOpleidingMbo = new Label("");
@@ -138,13 +133,11 @@ public class DetailsKazerne {
             // Invoervelden aanmelden
             TextField txtProfessioneelMan = new TextField();
             TextField txtProfessioneelVrouw = new TextField();
-            TextField txtProfessioneelHogeRank = new TextField();
-            TextField txtProfessioneelMiddenRank = new TextField();
+            TextField txtProfessioneelHogeMiddenRank = new TextField();
             TextField txtProfessioneelLageRank = new TextField();
             TextField txtVrijwilligMan = new TextField();
             TextField txtVrijwilligVrouw = new TextField();
-            TextField txtVrijwilligHogeRank = new TextField();
-            TextField txtVrijwilligMiddenRank = new TextField();
+            TextField txtVrijwilligHogeMiddenRank = new TextField();
             TextField txtVrijwilligLageRank = new TextField();
             TextField txtOpleidingHboWo = new TextField();
             TextField txtOpleidingMbo = new TextField();
@@ -162,13 +155,11 @@ public class DetailsKazerne {
             lblTitelNietOperationeel.getStyleClass().add("page--section");
             lblProfessioneelMan.getStyleClass().add("page--label");
             lblProfessioneelVrouw.getStyleClass().add("page--label");
-            lblProfessioneelHogeRank.getStyleClass().add("page--label");
-            lblProfessioneelMiddenRank.getStyleClass().add("page--label");
+            lblProfessioneelHogeMiddenRank.getStyleClass().add("page--label");
             lblProfessioneelLageRank.getStyleClass().add("page--label");
             lblVrijwilligMan.getStyleClass().add("page--label");
             lblVrijwilligVrouw.getStyleClass().add("page--label");
-            lblVrijwilligHogeRank.getStyleClass().add("page--label");
-            lblVrijwilligMiddenRank.getStyleClass().add("page--label");
+            lblVrijwilligHogeMiddenRank.getStyleClass().add("page--label");
             txtVrijwilligLageRank.getStyleClass().add("page--label");
             lblOpleidingHboWo.getStyleClass().add("page--label");
             lblOpleidingMbo.getStyleClass().add("page--label");
@@ -180,13 +171,11 @@ public class DetailsKazerne {
 
             lblFeedbackProfessioneelMan.getStyleClass().add("feedback__label");
             lblFeedbackProfessioneelVrouw.getStyleClass().add("feedback__label");
-            lblFeedbackProfessioneelHogeRank.getStyleClass().add("feedback__label");
-            lblFeedbackProfessioneelMiddenRank.getStyleClass().add("feedback__label");
+            lblFeedbackProfessioneelHogeMiddenRank.getStyleClass().add("feedback__label");
             lblFeedbackProfessioneelLageRank.getStyleClass().add("feedback__label");
             lblFeedbackVrijwilligMan.getStyleClass().add("feedback__label");
             lblFeedbackVrijwilligVrouw.getStyleClass().add("feedback__label");
-            lblFeedbackVrijwilligHogeRank.getStyleClass().add("feedback__label");
-            lblFeedbackVrijwilligMiddenRank.getStyleClass().add("feedback__label");
+            lblFeedbackVrijwilligHogeMiddenRank.getStyleClass().add("feedback__label");
             lblFeedbackVrijwilligLageRank.getStyleClass().add("feedback__label");
             lblFeedbackOpleidingHboWo.getStyleClass().add("feedback__label");
             lblFeedbackOpleidingMbo.getStyleClass().add("feedback__label");
@@ -197,28 +186,32 @@ public class DetailsKazerne {
             // Professioneel man en vrouw
             txtProfessioneelMan.setPrefWidth(380);
             txtProfessioneelVrouw.setPrefWidth(380);
+            // Professioneel hoge/midden en lage rank
+            txtProfessioneelHogeMiddenRank.setPrefWidth(380);
+            txtProfessioneelLageRank.setPrefWidth(380);
             // Vrijwillig man en vrouw
             txtVrijwilligMan.setPrefWidth(380);
             txtVrijwilligVrouw.setPrefWidth(380);
+            // Vrijwillig hoge/midden en lage rank
+            txtVrijwilligHogeMiddenRank.setPrefWidth(380);
+            txtVrijwilligLageRank.setPrefWidth(380);
 
             /*
              * Tekst in de teksvelden zetten
              */
             txtProfessioneelMan.setText(kazerne.getProfessioneelMan().toString());
             txtProfessioneelVrouw.setText(kazerne.getProfessioneelVrouw().toString());
-            txtProfessioneelHogeRank.setText(kazerne.getProfessioneelHogeRank().toString());
-            txtProfessioneelMiddenRank.setText(kazerne.getProfessioneelMiddenRank().toString());
+            txtProfessioneelHogeMiddenRank.setText(kazerne.getProfessioneelHogeMiddenRank().toString());
             txtProfessioneelLageRank.setText(kazerne.getProfessioneelLageRank().toString());
             txtVrijwilligMan.setText(kazerne.getVrijwilligerMan().toString());
             txtVrijwilligVrouw.setText(kazerne.getVrijwilligerVrouw().toString());
-            txtVrijwilligHogeRank.setText(kazerne.getVrijwilligerHogeRank().toString());
-            txtVrijwilligMiddenRank.setText(kazerne.getVrijwilligerMiddenRank().toString());
+            txtVrijwilligHogeMiddenRank.setText(kazerne.getVrijwilligerHogeMiddenRank().toString());
             txtVrijwilligLageRank.setText(kazerne.getVrijwilligerLageRank().toString());
             txtOpleidingHboWo.setText(kazerne.getNietOperationeelHboWo().toString());
             txtOpleidingMbo.setText(kazerne.getNietOperationeelMbo().toString());
             txtOpleidingLbo.setText(kazerne.getNietOperationeelLbo().toString());
-            // Kijken of er een tekort is, 1 betekent ja
-            if(kazerne.getTekort() == 1){
+            // Kijken of er een tekort is
+            if(kazerne.getTekort().matches("Ja")){
                 // Checkbox checked maken
                 cbTekort.setSelected(true);
             }
@@ -227,7 +220,7 @@ public class DetailsKazerne {
              * Items op de goede plaats zetten
              */
             // Titel
-            lblTitel.setLayoutX(440);
+            lblTitel.setLayoutX(415);
             lblTitel.setLayoutY(160);
             // Titel Professioneel
             lblTitelProfessioneel.setLayoutX(100);
@@ -250,32 +243,23 @@ public class DetailsKazerne {
             // Professioneel vrouw feedback
             lblFeedbackProfessioneelVrouw.setLayoutX(550);
             lblFeedbackProfessioneelVrouw.setLayoutY(315);
-            // Professioneel hoger rank label
-            lblProfessioneelHogeRank.setLayoutX(100);
-            lblProfessioneelHogeRank.setLayoutY(350);
-            // Professioneel hoger rank invoerveld
-            txtProfessioneelHogeRank.setLayoutX(100);
-            txtProfessioneelHogeRank.setLayoutY(375);
-            // Professioneel hoger rank feedback
-            lblFeedbackProfessioneelHogeRank.setLayoutX(100);
-            lblFeedbackProfessioneelHogeRank.setLayoutY(415);
-            // Professioneel midden rank label
-            lblProfessioneelMiddenRank.setLayoutX(400);
-            lblProfessioneelMiddenRank.setLayoutY(350);
-            // Professioneel midden rank invoerveld
-            txtProfessioneelMiddenRank.setLayoutX(400);
-            txtProfessioneelMiddenRank.setLayoutY(375);
-            // Professioneel midden rank feedback
-            lblFeedbackProfessioneelMiddenRank.setLayoutX(400);
-            lblFeedbackProfessioneelMiddenRank.setLayoutY(415);
+            // Professioneel hoger en midden rank label
+            lblProfessioneelHogeMiddenRank.setLayoutX(100);
+            lblProfessioneelHogeMiddenRank.setLayoutY(350);
+            // Professioneel hoger en midden rank invoerveld
+            txtProfessioneelHogeMiddenRank.setLayoutX(100);
+            txtProfessioneelHogeMiddenRank.setLayoutY(375);
+            // Professioneel hoger en midden rank feedback
+            lblFeedbackProfessioneelHogeMiddenRank.setLayoutX(100);
+            lblFeedbackProfessioneelHogeMiddenRank.setLayoutY(415);
             // Professioneel lager rank label
-            lblProfessioneelLageRank.setLayoutX(700);
+            lblProfessioneelLageRank.setLayoutX(550);
             lblProfessioneelLageRank.setLayoutY(350);
             // Professioneel lager rank invoerveld
-            txtProfessioneelLageRank.setLayoutX(700);
+            txtProfessioneelLageRank.setLayoutX(550);
             txtProfessioneelLageRank.setLayoutY(375);
             // Professioneel lager rank feedback
-            lblFeedbackProfessioneelLageRank.setLayoutX(700);
+            lblFeedbackProfessioneelLageRank.setLayoutX(550);
             lblFeedbackProfessioneelLageRank.setLayoutY(415);
             // Titel vrijwilligers label
             lblTitelVrijwillig.setLayoutX(100);
@@ -296,34 +280,25 @@ public class DetailsKazerne {
             txtVrijwilligVrouw.setLayoutX(550);
             txtVrijwilligVrouw.setLayoutY(515);
             // Vrijwilliger vrouw feedback
-            lblFeedbackVrijwilligVrouw.setLayoutX(550);
+            lblFeedbackVrijwilligVrouw.setLayoutX(100);
             lblFeedbackVrijwilligVrouw.setLayoutY(555);
-            // Vrijwilliger hoger rank label
-            lblVrijwilligHogeRank.setLayoutX(100);
-            lblVrijwilligHogeRank.setLayoutY(575);
+            // Vrijwilliger hoger en midden rank label
+            lblVrijwilligHogeMiddenRank.setLayoutX(100);
+            lblVrijwilligHogeMiddenRank.setLayoutY(575);
             // Vrijwilliger hoger rank invoerveld
-            txtVrijwilligHogeRank.setLayoutX(100);
-            txtVrijwilligHogeRank.setLayoutY(600);
-            // Vrijwilliger hoger rank feedback
-            lblFeedbackVrijwilligHogeRank.setLayoutX(100);
-            lblFeedbackVrijwilligHogeRank.setLayoutY(640);
-            // Vrijwilliger midden rank label
-            lblVrijwilligMiddenRank.setLayoutX(400);
-            lblVrijwilligMiddenRank.setLayoutY(575);
-            // Vrijwilliger midden rank invoerveld
-            txtVrijwilligMiddenRank.setLayoutX(400);
-            txtVrijwilligMiddenRank.setLayoutY(600);
-            // Vrijwilliger midden rank feedback
-            lblFeedbackVrijwilligMiddenRank.setLayoutX(400);
-            lblFeedbackVrijwilligMiddenRank.setLayoutY(640);
+            txtVrijwilligHogeMiddenRank.setLayoutX(100);
+            txtVrijwilligHogeMiddenRank.setLayoutY(600);
+            // Vrijwilliger hoger en midden rank feedback
+            lblFeedbackVrijwilligHogeMiddenRank.setLayoutX(100);
+            lblFeedbackVrijwilligHogeMiddenRank.setLayoutY(640);
             // Vrijwilliger lager rank label
-            lblVrijwilligLageRank.setLayoutX(700);
+            lblVrijwilligLageRank.setLayoutX(550);
             lblVrijwilligLageRank.setLayoutY(575);
             // Vrijwilliger lager rank invoerveld
-            txtVrijwilligLageRank.setLayoutX(700);
+            txtVrijwilligLageRank.setLayoutX(550);
             txtVrijwilligLageRank.setLayoutY(600);
             // Vrijwilliger lager rank feedback
-            lblFeedbackVrijwilligLageRank.setLayoutX(700);
+            lblFeedbackVrijwilligLageRank.setLayoutX(550);
             lblFeedbackVrijwilligLageRank.setLayoutY(640);
             // Titel niet operationeel label
             lblTitelNietOperationeel.setLayoutX(100);
@@ -375,84 +350,78 @@ public class DetailsKazerne {
             /*
              * Alles in de root AnchorPane zetten
              */
-            root.getChildren().addAll(topMenu, bottomMenu, lblTitel, lblTitelProfessioneel, lblTitelVrijwillig, lblTitelNietOperationeel, 
-                                     lblProfessioneelMan,lblProfessioneelVrouw, lblProfessioneelHogeRank, lblProfessioneelMiddenRank, 
-                                     lblProfessioneelLageRank, lblVrijwilligMan, lblVrijwilligVrouw, lblVrijwilligHogeRank, lblVrijwilligMiddenRank, 
-                                     lblVrijwilligLageRank, lblOpleidingHboWo, lblOpleidingMbo, lblOpleidingLbo, lblTekort, 
-                                     lblFeedbackProfessioneelMan, lblFeedbackProfessioneelVrouw, lblFeedbackProfessioneelHogeRank,
-                                     lblFeedbackProfessioneelMiddenRank, lblFeedbackProfessioneelLageRank, lblFeedbackVrijwilligMan, 
-                                     lblFeedbackVrijwilligVrouw, lblFeedbackVrijwilligHogeRank, lblFeedbackVrijwilligMiddenRank, 
-                                     lblFeedbackVrijwilligLageRank, lblFeedbackOpleidingHboWo, lblFeedbackOpleidingMbo,lblFeedbackOpleidingLbo, 
-                                     txtProfessioneelMan, txtProfessioneelVrouw, txtProfessioneelHogeRank, txtProfessioneelMiddenRank,
-                                     txtProfessioneelLageRank, txtVrijwilligMan, txtVrijwilligVrouw, txtVrijwilligHogeRank, txtVrijwilligMiddenRank, 
-                                     txtVrijwilligLageRank, txtOpleidingHboWo, txtOpleidingMbo, txtOpleidingLbo, cbTekort, 
-                                     btnUpdateKazerne, lblFeedbackUpdateKazerne, btnGeschiedenisKazerne);        
+            root.getChildren().addAll(topMenu, bottomMenu, lblTitel, lblTitelProfessioneel, lblTitelVrijwillig, lblTitelNietOperationeel, lblProfessioneelMan,
+                                         lblProfessioneelVrouw, lblProfessioneelHogeMiddenRank, lblProfessioneelLageRank, lblVrijwilligMan,
+                                         lblVrijwilligVrouw, lblVrijwilligHogeMiddenRank, lblVrijwilligLageRank, lblOpleidingHboWo,
+                                         lblOpleidingMbo, lblOpleidingLbo, lblTekort, lblFeedbackProfessioneelMan, lblFeedbackProfessioneelVrouw, 
+                                         lblFeedbackProfessioneelHogeMiddenRank, lblFeedbackProfessioneelLageRank, lblFeedbackVrijwilligMan, lblFeedbackVrijwilligVrouw, 
+                                         lblFeedbackVrijwilligHogeMiddenRank, lblFeedbackVrijwilligLageRank, lblFeedbackOpleidingHboWo, lblFeedbackOpleidingMbo,
+                                         lblFeedbackOpleidingLbo, txtProfessioneelMan, txtProfessioneelVrouw, txtProfessioneelHogeMiddenRank,
+                                         txtProfessioneelLageRank, txtVrijwilligMan, txtVrijwilligVrouw, txtVrijwilligHogeMiddenRank, 
+                                         txtVrijwilligLageRank, txtOpleidingHboWo, txtOpleidingMbo, txtOpleidingLbo, cbTekort, 
+                                         btnUpdateKazerne, lblFeedbackUpdateKazerne, btnGeschiedenisKazerne);       
             /*
              * Functies achter de knoppen
              */
             // Gegevens updaten knop knop
             btnUpdateKazerne.setOnAction(event -> {
-               // Waarden uit de invoervelden halen en omzetten in Strings
-               // Dit is zodat ik kan checken of het leeg is, wanneer het naar de functie gaat worden het ints.
-               // De formumvalidatie houdt tegen dat er letters ingevuld worden zodat het veillig naar ints kan
-               String sProfessioneelMan = txtProfessioneelMan.getText();
-               String sProfessioneelVrouw = txtProfessioneelVrouw.getText();
-               String sProfessioneelHogeRank = txtProfessioneelHogeRank.getText();
-               String sProfessioneelMiddenRank = txtProfessioneelMiddenRank.getText();
-               String sProfessioneelLageRank = txtProfessioneelLageRank.getText();
-               String sVrijwilligMan = txtVrijwilligMan.getText();
-               String sVrijwilligVrouw = txtVrijwilligVrouw.getText();
-               String sVrijwilligHogeRank = txtVrijwilligHogeRank.getText();
-               String sVrijwilligMiddenRank = txtVrijwilligMiddenRank.getText();
-               String sVrijwilligLageRank = txtVrijwilligLageRank.getText();
-               String sOpleidingHboWo = txtOpleidingHboWo.getText();
-               String sOpleidingMbo = txtOpleidingMbo.getText();
-               String sOpleidingLbo = txtOpleidingLbo.getText();
+                // Waarden uit de invoervelden halen en omzetten in Strings
+                // Dit is zodat ik kan checken of het leeg is, wanneer het naar de functie gaat worden het ints.
+                // De formumvalidatie houdt tegen dat er letters ingevuld worden zodat het veillig naar ints kan
+                String sProfessioneelMan = txtProfessioneelMan.getText();
+                String sProfessioneelVrouw = txtProfessioneelVrouw.getText();
+                String sProfessioneelHogeMiddenRank = txtProfessioneelHogeMiddenRank.getText();
+                String sProfessioneelLageRank = txtProfessioneelLageRank.getText();
+                String sVrijwilligMan = txtVrijwilligMan.getText();
+                String sVrijwilligVrouw = txtVrijwilligVrouw.getText();
+                String sVrijwilligHogeMiddenRank = txtVrijwilligHogeMiddenRank.getText();
+                String sVrijwilligLageRank = txtVrijwilligLageRank.getText();
+                String sOpleidingHboWo = txtOpleidingHboWo.getText();
+                String sOpleidingMbo = txtOpleidingMbo.getText();
+                String sOpleidingLbo = txtOpleidingLbo.getText();
 
-               // Checken of alles is ingevuld behave de combobox
-               if(sProfessioneelMan.isEmpty() && sProfessioneelMan.isEmpty() && sProfessioneelVrouw.isEmpty() && sProfessioneelHogeRank.isEmpty() && sProfessioneelMiddenRank.isEmpty() && sProfessioneelLageRank.isEmpty() && sVrijwilligMan.isEmpty() && sVrijwilligVrouw.isEmpty() && sVrijwilligHogeRank.isEmpty() && sVrijwilligMiddenRank.isEmpty() && sVrijwilligLageRank.isEmpty() && sOpleidingHboWo.isEmpty() && sOpleidingMbo.isEmpty() && sOpleidingLbo.isEmpty()){       
-                   // Foutmelding maken
-                   lblFeedbackUpdateKazerne.setText("Alle velden moeten invoervelden behalve tekort moeten ingevuld worden.");
+                // Checken of alles is ingevuld behave de combobox
+                if(sProfessioneelMan.isEmpty() && sProfessioneelMan.isEmpty() && sProfessioneelVrouw.isEmpty() && sProfessioneelHogeMiddenRank.isEmpty() && sProfessioneelLageRank.isEmpty() && sVrijwilligMan.isEmpty() && sVrijwilligVrouw.isEmpty() && sVrijwilligHogeMiddenRank.isEmpty() && sVrijwilligLageRank.isEmpty() && sOpleidingHboWo.isEmpty() && sOpleidingMbo.isEmpty() && sOpleidingLbo.isEmpty()){       
+                    // Foutmelding maken
+                    lblFeedbackUpdateKazerne.setText("Alle velden moeten invoervelden behalve tekort moeten ingevuld worden.");
 
-                   // Registreer knop niet klikbaar maken
-                   btnUpdateKazerne.setDisable(true);
+                    // Registreer knop niet klikbaar maken
+                    btnUpdateKazerne.setDisable(true);
 
-                   // Classes toevoegen
-                   lblFeedbackUpdateKazerne.getStyleClass().add("label--error");
-                   btnUpdateKazerne.getStyleClass().add("btn-disabeld");
+                    // Classes toevoegen
+                    lblFeedbackUpdateKazerne.getStyleClass().add("label--error");
+                    btnUpdateKazerne.getStyleClass().add("btn-disabeld");
 
-                   // Classes verwijderen
-                   lblFeedbackUpdateKazerne.getStyleClass().removeAll("label--succes");
-               }
+                    // Classes verwijderen
+                    lblFeedbackUpdateKazerne.getStyleClass().removeAll("label--succes");
+                }
 
-               // Checken of een ding niet is ingevuld behalve de combobox
-               else if(sProfessioneelMan.isEmpty() || sProfessioneelMan.isEmpty() || sProfessioneelVrouw.isEmpty() || sProfessioneelHogeRank.isEmpty() || sProfessioneelMiddenRank.isEmpty() || sProfessioneelLageRank.isEmpty() || sVrijwilligMan.isEmpty() || sVrijwilligVrouw.isEmpty() || sVrijwilligHogeRank.isEmpty() || sVrijwilligMiddenRank.isEmpty() || sVrijwilligLageRank.isEmpty() || sOpleidingHboWo.isEmpty() || sOpleidingMbo.isEmpty() || sOpleidingLbo.isEmpty()){
-                   // Foutmelding maken
-                   lblFeedbackUpdateKazerne.setText("Een of meedere velden is niet ingevuld.");
+                // Checken of een ding niet is ingevuld behalve de combobox
+                else if(sProfessioneelMan.isEmpty() || sProfessioneelMan.isEmpty() || sProfessioneelVrouw.isEmpty() || sProfessioneelHogeMiddenRank.isEmpty() || sProfessioneelLageRank.isEmpty() || sVrijwilligMan.isEmpty() || sVrijwilligVrouw.isEmpty() || sVrijwilligHogeMiddenRank.isEmpty() || sVrijwilligLageRank.isEmpty() || sOpleidingHboWo.isEmpty() || sOpleidingMbo.isEmpty() || sOpleidingLbo.isEmpty()){
+                    // Foutmelding maken
+                    lblFeedbackUpdateKazerne.setText("Een of meedere velden is niet ingevuld.");
 
-                   // Registreer knop niet klikbaar maken
-                   btnUpdateKazerne.setDisable(true);
+                    // Registreer knop niet klikbaar maken
+                    btnUpdateKazerne.setDisable(true);
 
-                   // Classes toevoegen
-                   lblFeedbackUpdateKazerne.getStyleClass().add("label--error");
-                   btnUpdateKazerne.getStyleClass().add("btn-disabeld");
+                    // Classes toevoegen
+                    lblFeedbackUpdateKazerne.getStyleClass().add("label--error");
+                    btnUpdateKazerne.getStyleClass().add("btn-disabeld");
 
-                   // Classes verwijderen
-                   lblFeedbackUpdateKazerne.getStyleClass().removeAll("label--succes");           
-               }
+                    // Classes verwijderen
+                    lblFeedbackUpdateKazerne.getStyleClass().removeAll("label--succes");           
+                }
 
-               // Als alles ingevuld is
-               else{                
+                // Als alles ingevuld is
+                else{                
                     // String waarden omzetten naar int waarden
                     int iProfessioneelMan = Integer.parseInt(sProfessioneelMan);
                     int iProfessioneelVrouw = Integer.parseInt(sProfessioneelVrouw);
-                    int iProfessioneelHogeRank = Integer.parseInt(sProfessioneelHogeRank);
-                    int iProfessioneelMiddenRank = Integer.parseInt(sProfessioneelMiddenRank);
+                    int iProfessioneelHogeMiddenRank = Integer.parseInt(sProfessioneelHogeMiddenRank);
                     int iProfessioneelLageRank = Integer.parseInt(sProfessioneelLageRank);
                     int iVrijwilligMan = Integer.parseInt(sVrijwilligMan);
                     int iVrijwilligVrouw = Integer.parseInt(sVrijwilligVrouw);
-                    int iVrijwilligHogeRank = Integer.parseInt(sVrijwilligHogeRank);
-                    int iVrijwilligMiddenRank = Integer.parseInt(sVrijwilligMiddenRank);
+                    int iVrijwilligHogeMiddenRank = Integer.parseInt(sVrijwilligHogeMiddenRank);
                     int iVrijwilligLageRank = Integer.parseInt(sVrijwilligLageRank);
                     int iOpleidingHboWo = Integer.parseInt(sOpleidingHboWo);
                     int iOpleidingMbo = Integer.parseInt(sOpleidingMbo);
@@ -463,17 +432,17 @@ public class DetailsKazerne {
                     int iJaar  = localDate.getYear();
 
                     // Checken of de de waardes van professioneel gender gelijk zijn professioneel per aantal rank
-                    int iVerschilProfessioneel = (iProfessioneelMan + iProfessioneelVrouw) - (iProfessioneelHogeRank + iProfessioneelMiddenRank + iProfessioneelLageRank);
+                    int iVerschilProfessioneel = (iProfessioneelMan + iProfessioneelVrouw) - (iProfessioneelHogeMiddenRank + iProfessioneelLageRank);
 
                     // Checken of de de waardes van vrijwilliger gender gelijk zijn vrijwilliger per aantal rank
-                    int iVerschilVrijwilliger = (iVrijwilligMan + iVrijwilligVrouw) - (iVrijwilligHogeRank + iVrijwilligMiddenRank + iVrijwilligLageRank);
+                    int iVerschilVrijwilliger = (iVrijwilligMan + iVrijwilligVrouw) - (iVrijwilligHogeMiddenRank + iVrijwilligLageRank);
 
                     // Professioneel is gender en rank komen in aantallen niet overeen
                     if(iVerschilProfessioneel != 0){
                         // Foutmelding maken
                         lblFeedbackUpdateKazerne.setText("Het aantal professionele leden per gender en per rank komen niet overeen.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
@@ -488,7 +457,7 @@ public class DetailsKazerne {
                         // Foutmelding maken
                         lblFeedbackUpdateKazerne.setText("Het aantal vrijwillige leden per gender en per rank komen niet overeen.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
@@ -503,10 +472,10 @@ public class DetailsKazerne {
                         if(cbTekort.isSelected()){
                             // Er is een tekort
                             // Variabele aanmaken voor tekort
-                            int iTekort = 1;
+                            String sTekort = "Ja";
 
                             // Variabele naar de functie sturen om het te updaten
-                            int iResultaat = db.updateKazere(sRegio, iJaar, iProfessioneelMan, iProfessioneelVrouw, iProfessioneelHogeRank, iProfessioneelMiddenRank, iProfessioneelLageRank, iVrijwilligMan, iVrijwilligVrouw, iVrijwilligHogeRank, iVrijwilligMiddenRank, iVrijwilligLageRank, iOpleidingHboWo, iOpleidingMbo, iOpleidingLbo, iTekort);
+                            int iResultaat = db.updateKazere(sRegio, iJaar, iProfessioneelMan, iProfessioneelVrouw, iProfessioneelHogeMiddenRank, iProfessioneelLageRank, iVrijwilligMan, iVrijwilligVrouw, iVrijwilligHogeMiddenRank, iVrijwilligLageRank, iOpleidingHboWo, iOpleidingMbo, iOpleidingLbo, sTekort);
 
                             if(iResultaat == 1){
                                 // Goedkeuring maken
@@ -531,10 +500,10 @@ public class DetailsKazerne {
                         } else{
                             // Er is geen tekort
                             // Variabele aanmaken voor tekort
-                            int iTekort = 0;
+                            String sTekort = "Nee";
 
                             // Variabele naar de functie sturen om het te updaten
-                            int iResultaat = db.updateKazere(sRegio, iJaar, iProfessioneelMan, iProfessioneelVrouw, iProfessioneelHogeRank, iProfessioneelMiddenRank, iProfessioneelLageRank, iVrijwilligMan, iVrijwilligVrouw, iVrijwilligHogeRank, iVrijwilligMiddenRank, iVrijwilligLageRank, iOpleidingHboWo, iOpleidingMbo, iOpleidingLbo, iTekort);
+                            int iResultaat = db.updateKazere(sRegio, iJaar, iProfessioneelMan, iProfessioneelVrouw, iProfessioneelHogeMiddenRank, iProfessioneelLageRank, iVrijwilligMan, iVrijwilligVrouw, iVrijwilligHogeMiddenRank, iVrijwilligLageRank, iOpleidingHboWo, iOpleidingMbo, iOpleidingLbo, sTekort);
 
                             if(iResultaat == 1){
                                 // Goedkeuring maken
@@ -596,7 +565,7 @@ public class DetailsKazerne {
                         // Foutmelding maken
                         lblFeedbackProfessioneelMan.setText("Dit veld moet ingevuld worden.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
@@ -613,7 +582,7 @@ public class DetailsKazerne {
                         // Foutmelding maken
                         lblFeedbackProfessioneelMan.setText("Er moet een getal ingevuld worden.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
@@ -630,7 +599,7 @@ public class DetailsKazerne {
                         // Goedkeuring maken
                         lblFeedbackProfessioneelMan.setText("oke");
 
-                        // Registreerknop klikbaar maken
+                        // Gegevens aanpassen knop klikbaar maken
                         btnUpdateKazerne.setDisable(false);
 
                         // Classes toevoegen
@@ -656,7 +625,7 @@ public class DetailsKazerne {
                         // Foutmelding maken
                         lblFeedbackProfessioneelVrouw.setText("Dit veld moet ingevuld worden.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
@@ -673,7 +642,7 @@ public class DetailsKazerne {
                         // Foutmelding maken
                         lblFeedbackProfessioneelVrouw.setText("Er moet een getal ingevuld worden.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
@@ -690,7 +659,7 @@ public class DetailsKazerne {
                         // Goedkeuring maken
                         lblFeedbackProfessioneelVrouw.setText("oke");
 
-                        // Registreerknop klikbaar maken
+                        // Gegevens aanpassen knop klikbaar maken
                         btnUpdateKazerne.setDisable(false);
 
                         // Classes toevoegen
@@ -705,123 +674,63 @@ public class DetailsKazerne {
                 }
             });
 
-            // Professioneel hoger rank
-            txtProfessioneelHogeRank.focusedProperty().addListener((arg0, oldValue, newValue) -> {
+            // Professioneel hoger en midden rank
+            txtProfessioneelHogeMiddenRank.focusedProperty().addListener((arg0, oldValue, newValue) -> {
                 // Waarden uit het invoerveld halen en omzetten in een string
-                String professioneelHogeRank = txtProfessioneelHogeRank.getText();
+                String professioneelHogeMiddenRank = txtProfessioneelHogeMiddenRank.getText();
                 // Kijken of de waarde vernieuwd is
                 if (!newValue) {                
                     // Kijken of de invoer leeg is
-                    if(professioneelHogeRank.isEmpty()){
+                    if(professioneelHogeMiddenRank.isEmpty()){
                         // Foutmelding maken
-                        lblFeedbackProfessioneelHogeRank.setText("Dit veld moet ingevuld worden.");
+                        lblFeedbackProfessioneelHogeMiddenRank.setText("Dit veld moet ingevuld worden.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
-                        lblFeedbackProfessioneelHogeRank.getStyleClass().add("label--error");
-                        txtProfessioneelHogeRank.getStyleClass().add("invoer--error");
+                        lblFeedbackProfessioneelHogeMiddenRank.getStyleClass().add("label--error");
+                        txtProfessioneelHogeMiddenRank.getStyleClass().add("invoer--error");
                         btnUpdateKazerne.getStyleClass().add("btn-disabeld");
 
                         // Classes verwijderen
-                        lblFeedbackProfessioneelHogeRank.getStyleClass().removeAll("label--succes");
-                        txtProfessioneelHogeRank.getStyleClass().removeAll("invoer--succes");
+                        lblFeedbackProfessioneelHogeMiddenRank.getStyleClass().removeAll("label--succes");
+                        txtProfessioneelHogeMiddenRank.getStyleClass().removeAll("invoer--succes");
                     }
 
-                    else if(!professioneelHogeRank.matches("[0-9]*")){
+                    else if(!professioneelHogeMiddenRank.matches("[0-9]*")){
                         // Foutmelding maken
-                        lblFeedbackProfessioneelHogeRank.setText("Er moet een getal ingevuld worden.");
+                        lblFeedbackProfessioneelHogeMiddenRank.setText("Er moet een getal ingevuld worden.");
 
-                        // Registreer knop niet klikbaar maken
+                        // Gegevens aanpassen knop niet klikbaar maken
                         btnUpdateKazerne.setDisable(true);
 
                         // Classes toevoegen
-                        lblFeedbackProfessioneelHogeRank.getStyleClass().add("label--error");
-                        txtProfessioneelHogeRank.getStyleClass().add("invoer--error");
+                        lblFeedbackProfessioneelHogeMiddenRank.getStyleClass().add("label--error");
+                        txtProfessioneelHogeMiddenRank.getStyleClass().add("invoer--error");
                         btnUpdateKazerne.getStyleClass().add("btn-disabeld");
 
                         // Classes verwijderen
-                        lblFeedbackProfessioneelHogeRank.getStyleClass().removeAll("label--succes");
-                        txtProfessioneelHogeRank.getStyleClass().removeAll("invoer--succes");
+                        lblFeedbackProfessioneelHogeMiddenRank.getStyleClass().removeAll("label--succes");
+                        txtProfessioneelHogeMiddenRank.getStyleClass().removeAll("invoer--succes");
                     }
 
                     else{
                         // Goedkeuring maken
-                        lblFeedbackProfessioneelHogeRank.setText("oke");
+                        lblFeedbackProfessioneelHogeMiddenRank.setText("oke");
 
-                        // Registreerknop klikbaar maken
+                        // Gegevens aanpassen knop klikbaar maken
                         btnUpdateKazerne.setDisable(false);
 
                         // Classes toevoegen
-                        lblFeedbackProfessioneelHogeRank.getStyleClass().add("label--succes");        
-                        txtProfessioneelHogeRank.getStyleClass().add("invoer--succes");
+                        lblFeedbackProfessioneelHogeMiddenRank.getStyleClass().add("label--succes");        
+                        txtProfessioneelHogeMiddenRank.getStyleClass().add("invoer--succes");
 
                         // Classes verwijderen
-                        lblFeedbackProfessioneelHogeRank.getStyleClass().removeAll("label--error");
-                        txtProfessioneelHogeRank.getStyleClass().removeAll("invoer--error");
+                        lblFeedbackProfessioneelHogeMiddenRank.getStyleClass().removeAll("label--error");
+                        txtProfessioneelHogeMiddenRank.getStyleClass().removeAll("invoer--error");
                         btnUpdateKazerne.getStyleClass().removeAll("btn-disabeld");
                     }
-                }
-            });
-
-            // Professioneel midden rank
-            txtProfessioneelMiddenRank.focusedProperty().addListener((arg0, oldValue, newValue) -> {
-               // Waarden uit het invoerveld halen en omzetten in een string
-               String professioneelMiddenRank = txtProfessioneelMiddenRank.getText();
-               // Kijken of de waarde vernieuwd is
-               if (!newValue) {                
-                   // Kijken of de invoer leeg is
-                   if(professioneelMiddenRank.isEmpty()){
-                        // Foutmelding maken
-                        lblFeedbackProfessioneelMiddenRank.setText("Dit veld moet ingevuld worden.");
-
-                        // Registreer knop niet klikbaar maken
-                        btnUpdateKazerne.setDisable(true);
-
-                        // Classes toevoegen
-                        lblFeedbackProfessioneelMiddenRank.getStyleClass().add("label--error");
-                        txtProfessioneelMiddenRank.getStyleClass().add("invoer--error");
-                        btnUpdateKazerne.getStyleClass().add("btn-disabeld");
-
-                        // Classes verwijderen
-                        lblFeedbackProfessioneelMiddenRank.getStyleClass().removeAll("label--succes");
-                        txtProfessioneelMiddenRank.getStyleClass().removeAll("invoer--succes");
-                    }
-
-                    else if(!professioneelMiddenRank.matches("[0-9]*")){
-                        // Foutmelding maken
-                        lblFeedbackProfessioneelMiddenRank.setText("Er moet een getal ingevuld worden.");
-
-                        // Registreer knop niet klikbaar maken
-                        btnUpdateKazerne.setDisable(true);
-
-                        // Classes toevoegen
-                        lblFeedbackProfessioneelMiddenRank.getStyleClass().add("label--error");
-                        txtProfessioneelMiddenRank.getStyleClass().add("invoer--error");
-                        btnUpdateKazerne.getStyleClass().add("btn-disabeld");
-
-                        // Classes verwijderen
-                        lblFeedbackProfessioneelMiddenRank.getStyleClass().removeAll("label--succes");
-                        txtProfessioneelMiddenRank.getStyleClass().removeAll("invoer--succes");
-                   }
-
-                    else{
-                        // Goedkeuring maken
-                        lblFeedbackProfessioneelMiddenRank.setText("oke");
-
-                        // Registreerknop klikbaar maken
-                        btnUpdateKazerne.setDisable(false);
-
-                        // Classes toevoegen
-                        lblFeedbackProfessioneelMiddenRank.getStyleClass().add("label--succes");        
-                        txtProfessioneelMiddenRank.getStyleClass().add("invoer--succes");
-
-                        // Classes verwijderen
-                        lblFeedbackProfessioneelMiddenRank.getStyleClass().removeAll("label--error");
-                        txtProfessioneelMiddenRank.getStyleClass().removeAll("invoer--error");
-                        btnUpdateKazerne.getStyleClass().removeAll("btn-disabeld");
-                   }
                 }
             });
 
@@ -836,7 +745,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackProfessioneelLageRank.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -853,7 +762,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackProfessioneelLageRank.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -870,7 +779,7 @@ public class DetailsKazerne {
                        // Goedkeuring maken
                        lblFeedbackProfessioneelLageRank.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
@@ -896,7 +805,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackVrijwilligMan.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -913,7 +822,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackVrijwilligMan.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -930,7 +839,7 @@ public class DetailsKazerne {
                        // Goedkeuring maken
                        lblFeedbackVrijwilligMan.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
@@ -956,7 +865,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackVrijwilligVrouw.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -973,7 +882,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackVrijwilligVrouw.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -990,7 +899,7 @@ public class DetailsKazerne {
                        // Goedkeuring maken
                        lblFeedbackVrijwilligVrouw.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
@@ -1005,121 +914,61 @@ public class DetailsKazerne {
                }
             });
 
-            // Vrijwilliger hoger rank
-            txtVrijwilligHogeRank.focusedProperty().addListener((arg0, oldValue, newValue) -> {
+            // Vrijwilliger hoger en midden rank
+            txtVrijwilligHogeMiddenRank.focusedProperty().addListener((arg0, oldValue, newValue) -> {
                // Waarden uit het invoerveld halen en omzetten in een string
-               String vrijwilligHogeRank = txtVrijwilligHogeRank.getText();
+               String vrijwilligHogeRank = txtVrijwilligHogeMiddenRank.getText();
                // Kijken of de waarde vernieuwd is
                if (!newValue) {                
                    // Kijken of de invoer leeg is
                    if(vrijwilligHogeRank.isEmpty()){
                        // Foutmelding maken
-                       lblFeedbackVrijwilligHogeRank.setText("Dit veld moet ingevuld worden.");
+                       lblFeedbackVrijwilligHogeMiddenRank.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
-                       lblFeedbackVrijwilligHogeRank.getStyleClass().add("label--error");
-                       txtVrijwilligHogeRank.getStyleClass().add("invoer--error");
+                       lblFeedbackVrijwilligHogeMiddenRank.getStyleClass().add("label--error");
+                       txtVrijwilligHogeMiddenRank.getStyleClass().add("invoer--error");
                        btnUpdateKazerne.getStyleClass().add("btn-disabeld");
 
                        // Classes verwijderen
-                       lblFeedbackVrijwilligHogeRank.getStyleClass().removeAll("label--succes");
-                       txtVrijwilligHogeRank.getStyleClass().removeAll("invoer--succes");
+                       lblFeedbackVrijwilligHogeMiddenRank.getStyleClass().removeAll("label--succes");
+                       txtVrijwilligHogeMiddenRank.getStyleClass().removeAll("invoer--succes");
                    }
 
                    else if(!vrijwilligHogeRank.matches("[0-9]*")){
                        // Foutmelding maken
-                       lblFeedbackVrijwilligHogeRank.setText("Er moet een getal ingevuld worden.");
+                       lblFeedbackVrijwilligHogeMiddenRank.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
-                       lblFeedbackVrijwilligHogeRank.getStyleClass().add("label--error");
-                       txtVrijwilligHogeRank.getStyleClass().add("invoer--error");
+                       lblFeedbackVrijwilligHogeMiddenRank.getStyleClass().add("label--error");
+                       txtVrijwilligHogeMiddenRank.getStyleClass().add("invoer--error");
                        btnUpdateKazerne.getStyleClass().add("btn-disabeld");
 
                        // Classes verwijderen
-                       lblFeedbackVrijwilligHogeRank.getStyleClass().removeAll("label--succes");
-                       txtVrijwilligHogeRank.getStyleClass().removeAll("invoer--succes");
+                       lblFeedbackVrijwilligHogeMiddenRank.getStyleClass().removeAll("label--succes");
+                       txtVrijwilligHogeMiddenRank.getStyleClass().removeAll("invoer--succes");
                    }
 
                    else{
                        // Goedkeuring maken
-                       lblFeedbackVrijwilligHogeRank.setText("oke");
+                       lblFeedbackVrijwilligHogeMiddenRank.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
-                       lblFeedbackVrijwilligHogeRank.getStyleClass().add("label--succes");        
-                       txtVrijwilligHogeRank.getStyleClass().add("invoer--succes");
+                       lblFeedbackVrijwilligHogeMiddenRank.getStyleClass().add("label--succes");        
+                       txtVrijwilligHogeMiddenRank.getStyleClass().add("invoer--succes");
 
                        // Classes verwijderen
-                       lblFeedbackVrijwilligHogeRank.getStyleClass().removeAll("label--error");
-                       txtVrijwilligHogeRank.getStyleClass().removeAll("invoer--error");
-                       btnUpdateKazerne.getStyleClass().removeAll("btn-disabeld");
-                   }
-               }
-            });
-
-            // Vrijwilliger midden rank
-            txtVrijwilligMiddenRank.focusedProperty().addListener((arg0, oldValue, newValue) -> {
-               // Waarden uit het invoerveld halen en omzetten in een string
-               String vrijwilligMiddenRank = txtVrijwilligMiddenRank.getText();
-               // Kijken of de waarde vernieuwd is
-               if (!newValue) {                
-                   // Kijken of de invoer leeg is
-                   if(vrijwilligMiddenRank.isEmpty()){
-                       // Foutmelding maken
-                       lblFeedbackVrijwilligMiddenRank.setText("Dit veld moet ingevuld worden.");
-
-                       // Registreer knop niet klikbaar maken
-                       btnUpdateKazerne.setDisable(true);
-
-                       // Classes toevoegen
-                       lblFeedbackVrijwilligMiddenRank.getStyleClass().add("label--error");
-                       txtVrijwilligMiddenRank.getStyleClass().add("invoer--error");
-                       btnUpdateKazerne.getStyleClass().add("btn-disabeld");
-
-                       // Classes verwijderen
-                       lblFeedbackVrijwilligMiddenRank.getStyleClass().removeAll("label--succes");
-                       txtVrijwilligMiddenRank.getStyleClass().removeAll("invoer--succes");
-                   }
-
-                   else if(!vrijwilligMiddenRank.matches("[0-9]*")){
-                       // Foutmelding maken
-                       lblFeedbackVrijwilligMiddenRank.setText("Er moet een getal ingevuld worden.");
-
-                       // Registreer knop niet klikbaar maken
-                       btnUpdateKazerne.setDisable(true);
-
-                       // Classes toevoegen
-                       lblFeedbackVrijwilligMiddenRank.getStyleClass().add("label--error");
-                       txtVrijwilligMiddenRank.getStyleClass().add("invoer--error");
-                       btnUpdateKazerne.getStyleClass().add("btn-disabeld");
-
-                       // Classes verwijderen
-                       lblFeedbackVrijwilligMiddenRank.getStyleClass().removeAll("label--succes");
-                       txtVrijwilligMiddenRank.getStyleClass().removeAll("invoer--succes");
-                   }
-
-                   else{
-                       // Goedkeuring maken
-                       lblFeedbackVrijwilligMiddenRank.setText("oke");
-
-                       // Registreerknop klikbaar maken
-                       btnUpdateKazerne.setDisable(false);
-
-                       // Classes toevoegen
-                       lblFeedbackVrijwilligMiddenRank.getStyleClass().add("label--succes");        
-                       txtVrijwilligMiddenRank.getStyleClass().add("invoer--succes");
-
-                       // Classes verwijderen
-                       lblFeedbackVrijwilligMiddenRank.getStyleClass().removeAll("label--error");
-                       txtVrijwilligMiddenRank.getStyleClass().removeAll("invoer--error");
+                       lblFeedbackVrijwilligHogeMiddenRank.getStyleClass().removeAll("label--error");
+                       txtVrijwilligHogeMiddenRank.getStyleClass().removeAll("invoer--error");
                        btnUpdateKazerne.getStyleClass().removeAll("btn-disabeld");
                    }
                }
@@ -1136,7 +985,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackVrijwilligLageRank.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1153,7 +1002,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackVrijwilligLageRank.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1170,7 +1019,7 @@ public class DetailsKazerne {
                        // Goedkeuring maken
                        lblFeedbackVrijwilligLageRank.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
@@ -1196,7 +1045,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackOpleidingHboWo.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1213,7 +1062,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackOpleidingHboWo.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1230,7 +1079,7 @@ public class DetailsKazerne {
                        // Goedkeuring maken
                        lblFeedbackOpleidingHboWo.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
@@ -1256,7 +1105,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackOpleidingMbo.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1273,7 +1122,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackOpleidingMbo.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1290,7 +1139,7 @@ public class DetailsKazerne {
                        // Goedkeuring maken
                        lblFeedbackOpleidingMbo.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
@@ -1316,7 +1165,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackOpleidingLbo.setText("Dit veld moet ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1333,7 +1182,7 @@ public class DetailsKazerne {
                        // Foutmelding maken
                        lblFeedbackOpleidingLbo.setText("Er moet een getal ingevuld worden.");
 
-                       // Registreer knop niet klikbaar maken
+                       // Gegevens aanpassen knop niet klikbaar maken
                        btnUpdateKazerne.setDisable(true);
 
                        // Classes toevoegen
@@ -1350,7 +1199,7 @@ public class DetailsKazerne {
                        // Goedkeuring maken
                        lblFeedbackOpleidingLbo.setText("oke");
 
-                       // Registreerknop klikbaar maken
+                       // Gegevens aanpassen knop klikbaar maken
                        btnUpdateKazerne.setDisable(false);
 
                        // Classes toevoegen
