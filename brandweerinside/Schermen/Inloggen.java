@@ -223,8 +223,6 @@ public class Inloggen {
                     
                     // Stuur naar kazerne aanpassen pagina
                     BrandweerKazerne brandweer = new BrandweerKazerne(primaryStage, scene, sEmail);
-                    
-                    //System.out.println("Brandweer account gevonden");
                 }
                 // Overheid of gemeente account gevonden
                 else if(iRechten == 2){
@@ -244,8 +242,6 @@ public class Inloggen {
                     
                     // Stuur naar overzicht kazernes pagina
                     OverzichtKazernes overzicht = new OverzichtKazernes(primaryStage, scene, sEmail);
-                    
-                    //System.out.println("Overheid / Gemeente account gevonden");
                 }
                 // Geen account gevonden
                 else{

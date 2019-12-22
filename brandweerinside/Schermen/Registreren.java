@@ -232,6 +232,7 @@ public class Registreren {
                 
                 // Kijken werk gelijk is aan brandweer
                 if(!sWerk.matches("Brandweer")){
+                    // Niet gelijk aan Brandweer
                     if(sNaam.isEmpty() && sWerk.isEmpty() && sEmail.isEmpty() && sWachtwoord.isEmpty()){
                         // Foutmelding maken
                         lblFeedbackRegistreren.setText("Naam, Werk, Email en Wachtwoord zijn niet ingevuld.");
@@ -271,6 +272,7 @@ public class Registreren {
                         // Kijken of registratie gelukt is
                         if(iRegistratie == 2){
                             Alert alert = new Alert(AlertType.INFORMATION, "Je account is aangemaakt. Je bent nu gelijk ingelogd.", ButtonType.OK);
+                            alert.setTitle("Je account is aangemaakt");
                             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
                             alert.show();
                             
@@ -327,8 +329,10 @@ public class Registreren {
                         
                         // Kijken of registratie gelukt is voor brandweer
                         if(iRegistratie == 1){
+                            // Alert aanmaken dat de registratie is gelukt en dat de gebruiker is ingelogd
                             Alert alert = new Alert(AlertType.INFORMATION, "Je account is aangemaakt. Je bent nu gelijk ingelogd.", ButtonType.OK);
                             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+                            alert.setTitle("Account aangemaakt");
                             alert.show();
                             
                             // Gebruiker naar overzicht kazernes sturen
@@ -337,8 +341,10 @@ public class Registreren {
                         
                         // Kijken of registratie gelukt is voor gemeente of overheid
                         else if(iRegistratie == 2){
+                            // Alert aanmaken dat de registratie is gelukt en dat de gebruiker is ingelogd
                             Alert alert = new Alert(AlertType.INFORMATION, "Je account is aangemaakt. Je bent nu gelijk ingelogd.", ButtonType.OK);
                             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+                            alert.setTitle("Account aangemaakt");
                             alert.show();
                             
                             // Gebruiker naar overzicht kazernes sturen
@@ -368,10 +374,6 @@ public class Registreren {
                 // Classes toevoegen
                 lblFeedbackRegistreren.getStyleClass().add("label--error");
                 btnRegistreren.getStyleClass().add("btn-disabeld");
-            }
-            finally{
-                // rotzooi opruiten, wordt altijd uitgevoerd
-                // Gebruik javadoc, aka @param (parameter)
             }
         });
         
