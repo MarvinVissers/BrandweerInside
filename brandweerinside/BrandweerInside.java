@@ -26,6 +26,7 @@ public class BrandweerInside extends Application {
         AnchorPane root = new AnchorPane();
         Scene scene = new Scene(root, 1080, 875);       
         
+        // Interface aanroepen
         new Inloggen(root, primaryStage, scene);  
 
         // Stylesheet toevoegen
